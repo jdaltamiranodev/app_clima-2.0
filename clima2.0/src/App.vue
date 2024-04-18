@@ -6,7 +6,7 @@
         
         <router-link to="/">Home</router-link>
         <router-link to="/menu">Menu</router-link>
-        <router-link to="/noticias">Noticias</router-link>
+        <router-link to="/Noticias">Noticias</router-link>
       </nav>
     </header>
 
@@ -16,13 +16,18 @@
       <router-view />
     </main>
   </div>
+  
 </template>
 
 <script>
 
-export default {
+import { defineComponent } from 'vue';
+
+
+export default defineComponent({
   name: 'App',
-}
+  
+});
 </script>
 
 <style>
