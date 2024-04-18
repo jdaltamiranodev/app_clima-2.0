@@ -9,7 +9,15 @@
         <router-link to="/Noticias">Noticias</router-link>
         <router-link to="/agenda">Agenda</router-link>
       </nav>
+      <div class="todayDate">
+            <h2>{{ new Date().toLocaleDateString('es',{
+            weekday:'long',
+            year: 'numeric',
+            month: 'long',
+            day:'numeric'})}}</h2>
+      </div>
     </header>
+    
 
     
     <main>
@@ -63,5 +71,6 @@ nav a {
 nav a:hover {
   text-decoration: underline;
 }
+
 </style>
 
