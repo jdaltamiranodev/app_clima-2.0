@@ -1,7 +1,7 @@
 <!-- noticia.vue -->
 <template>
     <div>
-      <h1>Noticia</h1>
+      
       <NewsWords />
     </div>
   </template>

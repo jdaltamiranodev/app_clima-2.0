@@ -5,6 +5,7 @@ import Home from './views/HomeClima.vue';
 import Menu from './views/MenuClima.vue';
 import NoticiasWords from './views/NoticiasWords.vue';
 import 'bootstrap/dist/css/bootstrap.css'
+import 'bootstrap';
 import 'bootstrap-vue/dist/bootstrap-vue.css'
 
 const routes = [
