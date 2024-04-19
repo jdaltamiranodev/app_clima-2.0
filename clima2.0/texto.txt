@@ -1,13 +1,34 @@
-<!-- News.vue -->
 <template>
   <div class="news">
-    <h2 v-if="weatherData && weatherData.name">Condiciones meteorológicas actuales en {{ weatherData.name }}</h2>
-    <p v-if="weatherData && weatherData.main">Temperatura: {{ weatherData.main.temp }}°C</p>
-    <p v-if="weatherData && weatherData.weather && weatherData.weather[0]">Descripción: {{ weatherData.weather[0].description }}</p>
+    <h2>Condiciones meteorológicas actuales en {{ weatherData.name }}</h2>
+    <p>Temperatura: {{ weatherData.main.temp }}°C</p>
+    <p>Descripción: {{ weatherData.weather[0].description }}</p>
+  
   </div>
 </template>
 
 <script>
+// Importa reactive para crear datos reactivos
+/* import { reactive } from 'vue'; */
+
+// Define los datos reactivos del componente
+/*const state = reactive({
+  title: 'Título de la noticia',
+  content: 'Contenido de la noticia...'
+});*/
+
+/* export default {
+  name: 'NewsWords',
+  props: { title: 'Título de la noticia',
+  content: 'Contenido de la noticia...'
+    
+  }
+} */
+
+
+
+// NewsWords.vue
+
 import { defineComponent, ref, onMounted } from 'vue';
 import axios from 'axios';
 
@@ -35,11 +56,5 @@ export default defineComponent({
     return { weatherData };
   },
 });
+
 </script>
-
-
-<style scoped>
-
-.news { }
-  
-</style>

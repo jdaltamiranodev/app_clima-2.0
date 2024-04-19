@@ -16,6 +16,8 @@
       NewsWords,
     }
   })
+
+  
   </script>
   
   <style scoped>
