@@ -1,17 +1,20 @@
-import { createApp } from 'vue'
-import App from './App.vue'
+import { createApp } from 'vue';
+import App from './App.vue';
 import { createRouter, createWebHistory } from 'vue-router';
-/* import Home from './views/HomeClima.vue'; */
+import HomeClima from './views/HomeClima.vue';
+
+
+
 import Menu from './views/MenuClima.vue';
 import NoticiasWords from './views/NoticiasWords.vue';
-import 'bootstrap/dist/css/bootstrap.css'
+import 'bootstrap/dist/css/bootstrap.css';
 import 'bootstrap';
-import 'bootstrap-vue/dist/bootstrap-vue.css'
-import './assets/tailwind.css'
-import SiteNavigation from './components/SiteNavigation.vue';
+import 'bootstrap-vue/dist/bootstrap-vue.css';
+import './assets/tailwind.css';
+
 
 const routes = [
-  { path: '/', component: SiteNavigation, name: 'home' },
+  { path: '/Home', component: HomeClima},
   { path: '/menu', component: Menu },
   { path: '/Noticias', component: NoticiasWords },
 ];

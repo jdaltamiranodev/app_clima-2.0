@@ -1,27 +1,66 @@
 <template>
-    <div
-      class="flex flex-col min-h-screen font-Roboto bg-weather-primary"
-    >
-        <SiteNavigation/>
-        <RouterView class="flex-1" v-slot="{ Component }">
-      <Transition name="page">
-        <component :is="Component" />
-      </Transition>
-    </RouterView>
+    <div class="app">
+        <div class="header container h-100 p-5">
+			<div class="d-flex justify-content-center h-100">
+                <div class="searchbar w-50 mx-2">
+                    <input
+                        type="text"
+                        class="input form-control"
+                        v-model="city"
+                        placeholder="Busca tu ciudad"
+                    />
+                </div>
+                <button
+                    class="btn-search btn btn-primary"
+                    @click="searchWeather"
+                >
+                    Buscar <i class="fas fa-search"></i>
+                </button>
+            </div>
+        </div>
+        <br />
+        <Weather :city="city" v-if="showWeather"></Weather>
     </div>
 </template>
 
-<script setup>
-    import { RouterView } from "vue-router";
-    import SiteNavigation from '@/components/SiteNavigation.vue'
+<script>
+import Weather from '../components/Weather.vue';
+
+export default (await import('vue')).defineComponent({
+    name: 'App',
+    components: {
+        Weather,
+    },
+    data() {
+        return {
+            city: '',
+            showWeather: false,
+        };
+    },
+    methods: {
+        async searchWeather() {
+            this.showWeather = false;
+            await this.$nextTick();
+            this.showWeather = true;
+        },
+    },
+});
 </script>
 
-<style>
-.page-enter-active {
-  transition: 600ms ease all;
+<style scoped>
+body {
+    background-color: #121212 !important;
 }
 
-.page-enter-from {
-  opacity: 0;
+.header {
+    background-color: #212730;
+    border-radius: 20px;
+    color: #fff;
+    text-align: center;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    margin-top: 5rem;
+}
+.btn-search {
+    background-image: linear-gradient(to right, cyan, magenta);
 }
 </style>
