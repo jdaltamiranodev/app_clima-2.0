@@ -1,7 +1,7 @@
 <template>
   <div id="app">
     <header>
-      <h1>My Vue App</h1>
+      <h1>Windi</h1>
       <nav>
         
         <router-link to="/">Home</router-link>
