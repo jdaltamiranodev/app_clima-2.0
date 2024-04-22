@@ -5,7 +5,6 @@
       <nav>
         
         <router-link to="/">Home</router-link>
-        <router-link to="/menu">Menu</router-link>
         <router-link to="/Noticias">Noticias</router-link>
         <router-link to="/agenda">Agenda</router-link>
       </nav>
@@ -25,14 +24,10 @@
       <router-view />
     </main>
   </div>
-  
-      <main>
-        <router-view />
-      </main>
-    </div>
   </template>
-  
-});
+
+
+<script>
 </script>
 
 <style>
