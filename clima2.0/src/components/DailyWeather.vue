@@ -4,10 +4,19 @@
         <div class="SingleDayCard" >
             <div class="rightNow">
               <h2 v-if="weatherData && weatherData.name">{{ weatherData.name}}</h2>
-
+             
                <!--  <h2 v-if="weatherData && weatherData.name">{{ Math.floor(weatherData.name)}}</h2> -->
-                <p v-if="weatherData && weatherData.main">Temperatura: {{ weatherData.main.temp }}°C</p>
-                <p v-if="weatherData && weatherData.weather && weatherData.weather[0]">Descripción: {{ weatherData.weather[0].description }}</p>
+                <p v-if="weatherData && weatherData.main">Temperatura {{ Math.round(weatherData.main.temp) }}°C</p>
+                <p v-if="weatherData && weatherData.main">Mínimo {{ Math.round(weatherData.main.temp_min) }}°C</p>
+                <p v-if="weatherData && weatherData.main">Máxima{{ Math.round(weatherData.main.temp_max) }}°C</p>
+                             <!--  "main":{
+                  "temp":306.15, //current temperature
+                  "pressure":1013,
+                  "humidity":44,
+                  "temp_min":306.15, //min current temperature in the city
+                  "temp_max":306.15 //max current temperature in the city
+                } -->
+                
             </div>
             <div class="note">
                 <img alt="" src="../assets/pen.svg" >
@@ -38,7 +47,7 @@ export default defineComponent({
    // Método para obtener los datos del clima
    const getWeatherData = async () => {
       try {
-        const response = await axios.get(`https://api.openweathermap.org/data/2.5/weather?q=London&appid=${apiKey}&units=metric`);
+        const response = await axios.get(`https://api.openweathermap.org/data/2.5/weather?q=Bilbao&appid=${apiKey}&units=metric`);
         weatherData.value = response.data;
       } catch (error) {
         console.error('Error al obtener los datos del clima:', error);
@@ -56,7 +65,10 @@ export default defineComponent({
 </script>
 
 <style >
-.dailyCard{ border: solid 2px black; background-color: #d9d9d9 ;
+.dailyCard{ border: solid 2px black; 
+background-color: #d9d9d9 ;
+width: 50%;
+
 
 
 }
