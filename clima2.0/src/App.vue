@@ -9,7 +9,6 @@
         <router-link to="/Noticias">Noticias</router-link>
       </nav>
     </header>
-
     
     <main>
    
