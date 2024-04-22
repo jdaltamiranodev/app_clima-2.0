@@ -3,8 +3,9 @@
      
      <!--  <img alt="Vue logo" src="../assets/logo.svg"> -->
     
-        <DailyWeather msg=" daily"/>
-
+        <DailyWeather msg=""/>
+        
+      
         
     </div>
    
@@ -15,7 +16,7 @@
 import { defineComponent } from 'vue';
   // Importa el componente de noticias
   import DailyWeather from '@/components/DailyWeather.vue'; // Asegúrate de ajustar la ruta según la estructura de tu proyecto
-  
+ 
   export default  defineComponent({
     components: {
       DailyWeather,

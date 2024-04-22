@@ -1,0 +1,60 @@
+export default defineComponent({
+  name: 'DailyWeather',
+  setup() {
+    const weatherData = ref(null);
+    const apiKey = '8f5a97309913a1742cefe19e754e0110';
+
+   /*  https://bulk.openweathermap.org/snapshot/weather_zip_us.csv.gz?appid={API key} */
+
+   // Método para obtener los datos del clima
+   const getWeatherData = async () => {
+      try {
+        const response = await axios.get(`https://api.openweathermap.org/data/2.5/weather?q=Bilbao&appid=${apiKey}&units=metric`);
+        weatherData.value = response.data;
+      } catch (error) {
+        console.error('Error al obtener los datos del clima:', error);
+      }
+    };export default d
+<script setup>
+import { ref, onMounted } from 'vue';
+import axios from 'axios';
+
+const weatherData = ref(null);
+const apiKey = '8f5a97309913a1742cefe19e754e0110';
+
+// Método para obtener los datos del clima
+const getWeatherData = async () => {
+  try {
+    const response = await axios.get(`https://api.openweathermap.org/data/2.5/weather?q=Bilbao&appid=${apiKey}&units=metric`);
+    weatherData.value = response.data;
+  } catch (error) {
+    console.error('Error al obtener los datos del clima:', error);
+  }
+};
+
+// Llamar al método cuando el componente se monta
+onMounted(() => {
+  getWeatherData();
+});
+
+
+/////////////////////////////////////////////////////////////////////////
+
+
+///////to DO/////////////////
+
+const note_container = new Vue({
+  el: '#note_container',
+  data: {
+    todo:''
+  },
+  mounted(){
+    if(localStorage.todo)
+    this.todo = localStorage.todo;
+  },
+  watch:{
+    todo(newTodo){
+      localStorage.todo = newTodo;
+    }
+  }
+})
