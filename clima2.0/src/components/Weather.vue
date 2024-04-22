@@ -1,7 +1,7 @@
 <template>
-    <div class="container p-0">
-        <div class="d-flex">
-            <div class="card main-div w-100">
+    <div class="container-sm p-0">
+        <div class="d-flex flex-column flex-md-row">
+            <div class="card main-div">
                 <div class="p-3">
                     <h2 class="mb-1 day">Today</h2>
                     <p class="text-light date mb-0">{{ date }}</p>
@@ -20,13 +20,13 @@
                     </div>
                 </div>
             </div>
-            <div class="card card-2 w-100">
+            <div class="card card-2">
                 <table class="m-4">
                     <tbody>
                         <tr>
                             <th>Nivel del mar</th>
                             <td v-if="sea_level > 0">{{ sea_level }}</td>
-                            <td v-else>No tiene playa jajaja</td>
+                            <td v-else>Null</td>
                         </tr>
                         <tr>
                             <th>Humedad</th>
@@ -139,6 +139,18 @@ export default (await import('vue')).defineComponent({
 </script>
 
 <style scoped>
+.container-sm {
+    max-width: 800px; /* Cambio: Limita el ancho del contenedor */
+}
+
+.main-div, .card-2 {
+    width: 100%; /* Cambio: Establece el ancho al 100% */
+    margin-bottom: 10px; /* Cambio: Agrega un margen inferior */
+    height: 20rem;
+    align-items: right;
+}
+
+
 body {
     background-color: #343d4b;
 }

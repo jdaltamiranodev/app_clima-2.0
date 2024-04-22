@@ -63,4 +63,10 @@ body {
 .btn-search {
     background-image: linear-gradient(to right, cyan, magenta);
 }
+
+.app{
+	background-color: #343A40;
+	width: 100%;
+	
+}
 </style>

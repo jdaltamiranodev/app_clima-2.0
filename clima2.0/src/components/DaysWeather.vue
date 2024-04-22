@@ -58,7 +58,7 @@ export default (await import('vue')).defineComponent({
                             }
                             return acc;
                         }, [])
-                        .slice(1, 5);
+                       /*  .slice(1, 5); */
 
                     console.log(filteredData, 'working');
                     this.forecast = filteredData;
