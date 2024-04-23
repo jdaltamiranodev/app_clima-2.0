@@ -54,18 +54,17 @@
         </div>
       </div>
       <div class="p-4">
-        <!-- Aquí incluimos el componente GoogleMap como subcomponente -->
-        <GoogleMap :center="mapCenter" />
+        <GoogleMapComponent :center="mapCenter" />
       </div>
     </div>
-  </template>
+</template>
   
-  <script>
-  import axios from 'axios';
-  import DaysWeather from './DaysWeather.vue';
-  import GoogleMap from './GoogleMap.vue';
+<script>
+import axios from 'axios';
+import DaysWeather from './DaysWeather.vue';
+import GoogleMapComponent from './GoogleMapComponent.vue';
   
-  export default {
+export default {
     name: 'Weather',
     components: {
       DaysWeather,
@@ -121,6 +120,10 @@
             d.getFullYear();
           this.time =
             d.getHours() + ':' + d.getMinutes() + ':' + d.getSeconds();
+            this.mapCenter = {
+          lat: weatherData.coord.lat,
+          lng: weatherData.coord.lon,
+        };
         } catch (error) {
           console.error('Error fetching weather data: ', error);
           this.errorMessage =
