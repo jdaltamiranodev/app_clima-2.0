@@ -1,5 +1,6 @@
 <template>
   <div id="app">
+<<<<<<< HEAD
     <header class="header bg-dark">
       
       <svg width="100" height="100" viewBox="0 0 181 205" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -49,13 +50,25 @@
 </svg>
 
      <!-- <img src="../src/assets/logo.png" alt="">-->
+=======
+    <header>
+      <h1>Windi</h1>
+>>>>>>> develop
       <nav>
         
         <router-link to="/">Home</router-link>
-        <router-link to="/menu">Menu</router-link>
         <router-link to="/Noticias">Noticias</router-link>
+        <router-link to="/agenda">Agenda</router-link>
       </nav>
+      <div class="todayDate">
+            <h2>{{ new Date().toLocaleDateString('es',{
+            weekday:'long',
+            year: 'numeric',
+            month: 'long',
+            day:'numeric'})}}</h2>
+      </div>
     </header>
+    
 
     
     <main>
@@ -63,18 +76,10 @@
       <router-view />
     </main>
   </div>
-  
-</template>
+  </template>
+
 
 <script>
-
-import { defineComponent } from 'vue';
-
-
-export default defineComponent({
-  name: 'App',
-  
-});
 </script>
 
 <style>
@@ -113,5 +118,6 @@ nav a {
 nav a:hover {
   text-decoration: underline;
 }
+
 </style>
 
