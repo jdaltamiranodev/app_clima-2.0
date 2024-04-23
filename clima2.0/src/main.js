@@ -3,20 +3,20 @@ import App from './App.vue';
 import { createRouter, createWebHistory } from 'vue-router';
 import HomeClima from './views/HomeClima.vue';
 
-
-
-import Menu from './views/MenuClima.vue';
 import NoticiasWords from './views/NoticiasWords.vue';
-import 'bootstrap/dist/css/bootstrap.css';
-import 'bootstrap';
-import 'bootstrap-vue/dist/bootstrap-vue.css';
-import './assets/tailwind.css';
+import 'bootstrap/dist/css/bootstrap.css'
+import 'bootstrap-vue/dist/bootstrap-vue.css'
+import DailyWeather from './components/DailyWeather.vue';
+
+
 
 
 const routes = [
-  { path: '/Home', component: HomeClima},
-  { path: '/menu', component: Menu },
+  { path: '/', component: HomeClima },
   { path: '/Noticias', component: NoticiasWords },
+  { path: '/agenda', component: DailyWeather },
+
+
 ];
 
 const router = createRouter({
@@ -27,3 +27,5 @@ const router = createRouter({
 const app = createApp(App);
 app.use(router);
 app.mount('#app');
+
+
