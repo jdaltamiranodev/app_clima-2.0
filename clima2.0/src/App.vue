@@ -1,9 +1,8 @@
 <template>
   <div id="app">
-<<<<<<< HEAD
     <header class="header bg-dark">
       
-      <svg width="100" height="100" viewBox="0 0 181 205" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <svg width="200" height="100" viewBox="0 0 181 205" fill="none" xmlns="http://www.w3.org/2000/svg">
    <!-- SVG content -->
    <ellipse cx="90.6796" cy="110.584" rx="39.6796" ry="38.5845" fill="#FFC805"/>
 <path fill-rule="evenodd" clip-rule="evenodd" d="M2.00002 119.892L180.444 119.012C179.131 166.228 139.98 204.219 91.6676 204.457C43.355 204.695 3.8082 167.092 2.00002 119.892Z" fill="url(#paint0_linear_45_573)"/>
@@ -50,10 +49,6 @@
 </svg>
 
      <!-- <img src="../src/assets/logo.png" alt="">-->
-=======
-    <header>
-      <h1>Windi</h1>
->>>>>>> develop
       <nav>
         
         <router-link to="/">Home</router-link>
@@ -89,11 +84,11 @@
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   
-  color: #2c3e50;
+  color: #020202;
   margin-top: 60px;
 
 }
-svg { }
+
 /* Estilos para el encabezado y la navegación */
 .header {
   background-color: #171718;
