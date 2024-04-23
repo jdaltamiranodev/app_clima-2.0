@@ -23,11 +23,11 @@
         <div class="card card-2 w-100">
           <table class="m-4">
             <tbody>
-              <tr>
+              <!-- <tr>
                 <th>Nivel del mar</th>
                 <td v-if="sea_level > 0">{{ sea_level }}</td>
                 <td v-else>Null</td>
-              </tr>
+              </tr> -->
               <tr>
                 <th>Humedad</th>
                 <td>{{ humidity }}</td>
