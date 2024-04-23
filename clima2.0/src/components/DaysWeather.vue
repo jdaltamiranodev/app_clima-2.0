@@ -11,70 +11,61 @@
     </div>
 </template>
 
-<script>
+<script setup>
 import axios from 'axios';
 import moment from 'moment';
+import { ref, onMounted, defineProps } from 'vue';
 
-export default (await import('vue')).defineComponent({
-    props: {
-        cityname: String,
-    },
-    data() {
-        return {
-            forecast: [],
-            loading: true,
-            iconUrl: null,
-        };
-    },
-    mounted() {
-        this.fetchWeatherData();
-    },
-    methods: {
-        async fetchWeatherData() {
-            const apikey = 'f358c81e83557f952d0a885eeacfbc3e';
-            const city = this.cityname;
-            const apiUrl = `https://api.openweathermap.org/data/2.5/forecast?q=${city}&units=metric&appid=${apikey}`;
+const props = defineProps({
+    cityname: String,
+});
 
-            await axios
-                .get(apiUrl)
-                .then((Response) => {
-                    const forecastData = Response.data.list;
-                    const filteredData = forecastData
-                        .map((item) => {
-                            return {
-                                date: moment(item.dt_txt.split(' ')[0]),
-                                temperature: Math.round(item.main.temp),
-                                description: item.weather[0].description,
-                                iconUrl: `https://api.openweathermap.org/img/w/${item.weather[0].icon}.png`,
-                            };
-                        })
-                        .reduce((acc, item) => {
-                            if (
-                                !acc.some((day) =>
-                                    day.date.isSame(item.date, 'day'),
-                                )
-                            ) {
-                                acc.push(item);
-                            }
-                            return acc;
-                        }, [])
-                        .slice(1, 6);
+const forecast = ref([]);
+const loading = ref(true);
 
-                    console.log(filteredData, 'working');
-                    this.forecast = filteredData;
-                    this.loading = false;
-                })
-                .catch((error) => {
-                    console.error('Error fetching weather data: ', error);
-                    this.loading = false;
-                });
-        },
-        getDayName(date) {
-            return date.format('add');
-        },
-    },
+const fetchWeatherData = async () => {
+    const apikey = 'f358c81e83557f952d0a885eeacfbc3e';
+    const city = props.cityname;
+    const apiUrl = `https://api.openweathermap.org/data/2.5/forecast?q=${city}&units=metric&appid=${apikey}`;
+
+    try {
+        const response = await axios.get(apiUrl);
+        const forecastData = response.data.list;
+        const filteredData = forecastData
+            .map((item) => {
+                return {
+                    date: moment(item.dt_txt.split(' ')[0]),
+                    temperature: Math.round(item.main.temp),
+                    description: item.weather[0].description,
+                    iconUrl: `https://api.openweathermap.org/img/w/${item.weather[0].icon}.png`,
+                };
+            })
+            .reduce((acc, item) => {
+                if (!acc.some((day) => day.date.isSame(item.date, 'day'))) {
+                    acc.push(item);
+                }
+                return acc;
+            }, [])
+            .slice(1, 6);
+
+        forecast.value = filteredData;
+        loading.value = false;
+    } catch (error) {
+        console.error('Error fetching weather data: ', error);
+        loading.value = false;
+    }
+};
+
+const getDayName = (date) => {
+    return date.format('add');
+};
+
+onMounted(() => {
+    fetchWeatherData();
 });
 </script>
+
+
 
 <style scoped>
 .days-tab {
